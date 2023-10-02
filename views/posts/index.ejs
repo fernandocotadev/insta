@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campgrounds</title>
+</head>
+
+<body>
+    <h1>Feed</h1>
+    
+    <ul>
+        <% for (let post of posts){%>
+        <li>
+            <p> <%= post.location %> </p>
+            <div>
+                <img alt="post image" src="<%=post.url%>" >
+            </div>
+            <p> <%= post.title %> </p>
+            </a>
+        </li>
+        <% }%>
+    </ul>
+
+</body>
+
+</html>
