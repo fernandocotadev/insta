@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://fernandocotadev.github.io/insta/",
+  "homepage": "https://fernandocotadev.github.io/insta",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish": "gh-pages -d src"
