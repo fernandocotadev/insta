@@ -33,9 +33,14 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-app.get('/index', async (req, res) => {
+app.get('/posts', async (req, res) => {
   const posts = await Post.find({});
   res.render('posts/index', { posts })
+});
+
+app.get('/posts/:id', async (req, res,) => {
+  const post = await Post.findById(req.params.id)
+  res.render('posts/show', { post });
 });
 
 app.listen(3000, () => {

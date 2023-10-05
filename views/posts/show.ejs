@@ -1,10 +1,9 @@
-<%-layout('layouts/boilerplate')%>
+<% layout('layouts/boilerplate')%>
 
 <body>
-    <h1>Feed</h1>
+    <h1>Show One</h1>
     
     <ul>
-        <% for (let post of posts){%>
         <li>
             <p> <%= post.location %> </p>
             <div>
@@ -12,13 +11,10 @@
                 <p><%=post.url%></p>
             </div>
             <p> <%= post.title %> </p>
-            <br>
-            <p> <%= post.id %> </p>
             </a>
         </li>
-        <% }%>
+        
     </ul>
 
 </body>
 
-</html>
