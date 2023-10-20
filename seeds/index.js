@@ -29,7 +29,7 @@ const seedDB = async () => {
         const post = new Post({
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            url: `${urls}`
+            url: `${sample(urls)}`
         })
         await post.save();
     }
