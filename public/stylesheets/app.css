@@ -1,0 +1,21 @@
+/* 
+/Users/fernandocota/Documents/dev/insta/public/stylesheets/app.css
+ */
+
+
+
+/* #btnControl {
+    display: none;
+}
+
+#btnControl:checked + label > img {
+    width: 70px;
+    height: 74px;
+} */
+
+
+
+* {
+    color: yellow;
+    background-color: blueviolet;
+}
