@@ -1,55 +1,101 @@
 <% layout('layouts/boilerplate')%>
 
-<br>
-<br>
-<br>
+<br />
+<br />
+<br />
 
 <div class="container d-flex align-items-center justify-content-center">
-<div >
-<div class="">
-    <h1 style="
-    font-size: 5rem;
-    font-family:Monoton;
-    color: #fff;text-shadow:0 0 7px #fff,0 0 10px #fff,0 0 21px #fff,0 0 42px #0fa,0 0 82px #0fa,0 0 92px #0fa,0 0 102px #0fa,0 0 151px #0fa;
-    ">Add Post</h1>
-</div>
-</div>
-</div>
-    
-
-    
-<div style="width:644px;margin:auto;">
-
-    <form action="/posts" method="POST">
-        <div class="form-group">
-            <label for="title">UserName</label>
-            <input type="text" class="form-control" id="username" name="post[username]" placeholder="Enter UserName">
-          </div>
-
-        <div class="form-group">
-          <label for="description">Post Description</label>
-          <input type="text" class="form-control" id="description" name="post[description]" placeholder="Enter Description">
-        </div>
-        
-        <div class="form-group">
-            <label for="location">Post Location</label>
-            <input type="text" class="form-control" id="location" name="post[location]" placeholder="Enter Location">
-          </div>
-
-        <div class="form-group">
-            <label for="title">Post URL</label>
-            <input type="text" class="form-control" id="url" name="post[url]" placeholder="Enter URL">
-        </div>
-<br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <br>
-      </form>
-      <br>  
-      <a href="/posts/" class="btn btn-primary">See All</a>
-      <br>
-
+  <div>
+    <div class="">
+      <h1
+        style="
+          font-size: 5rem;
+          font-family: Monoton;
+          color: #fff;
+          text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+            0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+        "
+      >
+        Add Post
+      </h1>
+    </div>
+  </div>
 </div>
 
+<div style="width: 644px; margin: auto">
+  <form action="/posts" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="username">UserName</label>
+      <input
+        type="text"
+        class="form-control"
+        autofocus="autofocus"
+        id="username"
+        name="post[username]"
+        placeholder="Enter UserName"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">A UserName is required.</div>
+    </div>
 
+    <div class="form-group">
+      <label for="description">Post Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        name="post[description]"
+        placeholder="Enter Description"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">A description is required.</div>
+    </div>
 
-    
+    <div class="form-group">
+      <label for="location">Post Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="location"
+        name="post[location]"
+        placeholder="Enter Location"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">A location is required.</div>
+    </div>
+
+    <!-- <div class="form-group">
+      <label for="url">Post URL</label>
+      <input
+        type="text"
+        class="form-control"
+        id="url"
+        name="post[url]"
+        placeholder="Enter URL"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+      <div class="invalid-feedback">A URL is required.</div>
+    </div> -->
+    <br /> 
+
+    <div class="form-file custom-file">
+      <input type="file" class="form-file-input" id="image" name="image" multiple>
+      <label class="form-file-label" for="image">
+          <span class="form-file-text custom-file-label">Choose image(s)...</span>
+          <span class="form-file-button">Browse</span>
+      </label>
+  </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br />
+  </form>
+  <br />
+  <a href="/posts/" class="btn btn-primary">See All</a>
+  <br />
+</div>
+ 

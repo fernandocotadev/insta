@@ -4,20 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MicroGram</title>
+    <title>MicroGram...</title>
 
+    <base href="/">
+    
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css' rel='stylesheet' />
+
+
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    
     <link href="https://fonts.googleapis.com/css?family=Monoton:400" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/7240761de6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="/Users/fernandocota/Documents/dev/insta/public/stylesheets/app.css">
-    
+
+
 </head>
 
 
 <body class="d-flex flex-column vh-100" style="background-color:black;color:white">
     <%- include('../partials/navbar')%>
     <main class="container mt-5">
+      <%- include('../partials/flash')%>
         <%- body %>
     </main>
     <%- include('../partials/footer')%>
@@ -27,6 +37,35 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
         integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
         crossorigin="anonymous"></script>
+
+    
+        <script>
+
+          // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+          'use strict'
+        
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.querySelectorAll('.validated-form')
+        
+          // Loop over them and prevent submission
+          Array.from(forms)
+            .forEach(function (form) {
+              form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+        
+                form.classList.add('was-validated')
+              }, false)
+            })
+        })()
+        
+        </script>
+
+<script src='/javascripts/validateForms.js'></script>
+
 </body>
 
 </html>

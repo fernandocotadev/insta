@@ -1,21 +1,11 @@
-/* 
-/Users/fernandocota/Documents/dev/insta/public/stylesheets/app.css
- */
-
-
-
-/* #btnControl {
-    display: none;
+#cluster-map {
+    width: 100%;
+    height: 500px;
 }
 
-#btnControl:checked + label > img {
-    width: 70px;
-    height: 74px;
-} */
-
-
-
-* {
-    color: yellow;
-    background-color: blueviolet;
+#map {
+    width: 100%;
+    height: 300px;
 }
+
+

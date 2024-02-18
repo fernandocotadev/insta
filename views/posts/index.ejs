@@ -1,4 +1,5 @@
 <% layout('layouts/boilerplate') %>
+<div id="cluster-map"></div>
 <!-- whole body -->
 <div style="background-color: black; color: white;">
 
@@ -62,10 +63,12 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <img src="<%= post.url %>" class="card-img-top" alt="Image for post" />
+                            
+                            
+                            <img src="<%= post.images[0].url %>" class="card-img-top" alt="Image for post" />
                             <div class="card-body">
                                 <div>
+                                    <%= post.likes %> likes 
                                     <i class="fa fa-heart-o"></i>
                                     <i class="fa fa-comment-o"></i>
                                     <i class="fa fa-send-o"></i>
@@ -95,3 +98,13 @@
 
     <!-- whole body -->
 </div>
+
+
+ 
+
+<script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+    const posts = { features: <%- JSON.stringify(posts) %>}
+</script>
+
+<script src="/javascripts/clusterMap.js"></script>
