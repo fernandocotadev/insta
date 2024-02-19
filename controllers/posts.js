@@ -16,11 +16,11 @@ module.exports.renderNewForm = (req, res) => {
 
 module.exports.createPost = async (req, res, next) => {
 
-    console.log("Create Post -- req.body.POST -- ")
+    console.log("* CREATE * Post -- req.body.POST -- ")
     console.log(req.body.post)
-    console.log("Create Post -- req.body.LOCATION -- ")
+    console.log("* CREATE * Post -- req.body.LOCATION -- ")
     console.log(req.body.post.location)
-    console.log("Create Post -- req.body.LOCATION -- TYPE OF - ")
+    console.log("* CREATE * Post -- req.body.LOCATION -- TYPE OF - ")
     console.log(typeof req.body.post.location)
 
     const geoData = await geocoder.forwardGeocode({
@@ -37,6 +37,9 @@ module.exports.createPost = async (req, res, next) => {
     post.geometry = geoData.body.features[0].geometry;
     post.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
     post.author = req.user._id;
+    let currentDate = new Date();
+    post.lastEdit = currentDate;
+    post.likes = Math.floor(Math.random() * 1000);
     await post.save();
 
     console.log("CREATE - POST  - ");
@@ -70,13 +73,15 @@ module.exports.renderEditForm = async (req, res) => {
     res.render('posts/edit', { post });
 }
 
-module.exports.updatePost = async (req, res) => {
+module.exports.updatePost = async (req, res) =>  {
     const { id } = req.params;
-    console.log("update Post - req.body");
+    console.log("###  UPDATE ###");
     console.log(req.body);
-    console.log("update Post - req.body");
     const post = await Post.findByIdAndUpdate(id, { ...req.body.post });
+    const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
     post.images.push(...imgs);
+    let currentDate = new Date();
+    post.lastEdit = currentDate;
     await post.save();
     if (req.body.deleteImages) {
         for (let filename of req.body.deleteImages) {
@@ -86,7 +91,9 @@ module.exports.updatePost = async (req, res) => {
     }
     req.flash('success', 'Successfully updated post!');
     res.redirect(`/posts/${post._id}`)
+    
 }
+
 
 module.exports.deletePost = async (req, res) => {
     const { id } = req.params;
