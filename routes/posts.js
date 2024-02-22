@@ -11,6 +11,7 @@ const Post = require('../models/post');
 
 router.route('/')
     .get(catchAsync(posts.index))
+    .get(catchAsync(posts.gallery))
     .post(isLoggedIn, upload.array('image'), validatePost, catchAsync(posts.createPost))
 
 router.get('/new', isLoggedIn, posts.renderNewForm)

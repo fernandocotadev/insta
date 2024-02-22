@@ -1,5 +1,5 @@
 <% layout('layouts/boilerplate') %>
-<div id="cluster-map"></div>
+
 <!-- whole body -->
 <div style="background-color: black; color: white;">
 
@@ -14,7 +14,6 @@
     <div class="text-center">
         <h1 style="
         font-family: Monoton; 
-        font-size: 5em;
         margin:auto; 
         color: #fff; text-shadow:0 0 7px #fff,0 0 10px #fff,0 0 21px #fff,0 0 42px #0fa,0 0 82px #0fa,0 0 92px #0fa,0 0 102px #0fa,0 0 151px #0fa;
         ">All Posts</h1>
@@ -43,7 +42,7 @@
     <br>
     <br> -->
 
-    <div class="container d-flex align-items-center justify-content-center" style="width:auto">
+    <div class="container d-flex align-items-center justify-content-center">
         <div>
 
             <div class="container">
@@ -56,7 +55,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col">
-                                        <img class="" style="border-radius:50%; width:2em;" src="https://res.cloudinary.com/djwmkwg8x/image/upload/v1708447020/Anonymous_User_ntj9ng.jpg"></img>
+                                        <img class="" style="border-radius:50%; width:22px;" src="https://www.w3schools.com/howto/img_avatar.png"></img>
                                     </div>
                                     <div class="col-10" style="line-height:.7;">
                                         <p><b><%= post.username %></b></p>
@@ -65,8 +64,8 @@
                                 </div>
                             </div>
                             
-                            <!-- max-width:93% -->
-                            <img src="<%= post.images[0].url %>" class="card-img-top" alt="Image for post" style="width:auto;border-radius:20px;"/>
+                            
+                            <img src="<%= post.images[0].url %>" class="card-img-top" alt="Image for post" style="max-width:93%"/>
                             <div class="card-body">
                                 <div>
                                     <%= post.likes %> likes 
@@ -101,11 +100,3 @@
 </div>
 
 
- 
-
-<script>
-    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-    const posts = { features: <%- JSON.stringify(posts) %>}
-</script>
-
-<script src="/javascripts/clusterMap.js"></script>

@@ -52,5 +52,5 @@ PostSchema.post('findOneAndDelete', async function (doc) {
         })
     }
 })
-
+ 
 module.exports = mongoose.model('Post', PostSchema);

@@ -115,7 +115,7 @@
             
                     <br>
                     <% for(let comment of post.comments) { %>
-                    <p class="card-text"> <img class="" style="border-radius: 50%; width: 12px;" src="https://www.w3schools.com/howto/img_avatar.png"> <b><%= comment.author.username %> </b> &#160 <%= comment.body %></p>
+                    <p class="card-text"> <img class="" style="border-radius: 50%; width: 12px;" src="https://res.cloudinary.com/djwmkwg8x/image/upload/v1708447020/Anonymous_User_ntj9ng.jpg"> <b><%= comment.author.username %> </b> &#160 <%= comment.body %></p>
 
                    
                     <form action="/posts/<%=post._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">

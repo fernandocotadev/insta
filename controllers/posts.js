@@ -10,6 +10,13 @@ module.exports.index = async (req, res) => {
     res.render('posts/index', { posts })
 }
 
+
+module.exports.gallery = async (req, res) => {
+    const posts = await Post.find({});
+    res.render('posts/gallery', { posts })
+}
+
+
 module.exports.renderNewForm = (req, res) => {
     res.render('posts/new');
 }
@@ -37,9 +44,24 @@ module.exports.createPost = async (req, res, next) => {
     post.geometry = geoData.body.features[0].geometry;
     post.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
     post.author = req.user._id;
-    let currentDate = new Date();
+    
+    let currentDate = new Date().toLocaleDateString('en-us', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
     post.lastEdit = currentDate;
     post.likes = Math.floor(Math.random() * 1000);
+
+    console.log("* CREATE * POST IMAGES * * * ")
+    console.log(post.images)
+
+
+    // if(!post.images){
+    //     post.images = [
+    //         {
+    //         url= "https://res.cloudinary.com/djwmkwg8x/image/upload/v1705443418/MicroGram/vb5jecfqelbkmrqrlldb.png",
+    //         filename= "YelpCamp/ahfnenvca4tha00h2ubt",
+    //         _id= b5c1789c666cdacabbh7m12d
+    //     }
+    //     ]
+    // }
     await post.save();
 
     console.log("CREATE - POST  - ");
@@ -80,7 +102,7 @@ module.exports.updatePost = async (req, res) =>  {
     const post = await Post.findByIdAndUpdate(id, { ...req.body.post });
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
     post.images.push(...imgs);
-    let currentDate = new Date();
+    let currentDate = new Date().toLocaleDateString('en-us', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
     post.lastEdit = currentDate;
     await post.save();
     if (req.body.deleteImages) {
