@@ -11,10 +11,10 @@ module.exports.index = async (req, res) => {
 }
 
 
-module.exports.gallery = async (req, res) => {
-    const posts = await Post.find({});
-    res.render('posts/gallery', { posts })
-}
+// module.exports.gallery = async (req, res) => {
+//     const posts = await Post.find({}).populate('popupText');
+//     res.render('posts/gallery', { posts })
+// }
 
 
 module.exports.renderNewForm = (req, res) => {
