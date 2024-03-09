@@ -8,15 +8,8 @@ const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const session = require('express-session');
 const flash = require('connect-flash');
-const catchAsync = require("./utils/catchAsync");
 const ExpressError = require("./utils/ExpressError");
-const Joi = require("joi");
-const { postSchema, commentSchema } = require("./schemas.js");
 const methodOverride = require("method-override");
-const Post = require("./models/post");
-const Comment = require('./models/comment')
-const posts = require('./routes/posts');
-const comments = require('./routes/comments');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
@@ -25,6 +18,14 @@ const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes = require('./routes/users');
 const postRoutes = require('./routes/posts');
 const commentRoutes = require('./routes/comments');
+
+// const catchAsync = require("./utils/catchAsync");
+// const Joi = require("joi");
+// const { postSchema, commentSchema } = require("./schemas.js");
+// const Post = require("./models/post");
+// const Comment = require('./models/comment')
+// const posts = require('./routes/posts');
+// const comments = require('./routes/comments');
 
 const uri = "mongodb+srv://fernando:fc394200@cluster0.wcj1x48.mongodb.net/";
 
@@ -85,6 +86,7 @@ const styleSrcUrls = [
     "https://api.tiles.mapbox.com/",
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
+    "https://fontawesome.com/",
     "https://cdn.jsdelivr.net/",
 ];
 const connectSrcUrls = [
@@ -95,7 +97,9 @@ const connectSrcUrls = [
 ];
 const fontSrcUrls = [
     "https://use.fontawesome.com/",
+    "https://cdnjs.cloudflare.com/",
     "https://fonts.gstatic.com/",
+    "https://res.cloudinary.com/djwmkwg8x/",
 ];
 
 app.use(
@@ -115,7 +119,7 @@ app.use(
                 "https://res.cloudinary.com/djwmkwg8x/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
                 "https://images.unsplash.com/",
             ],
-            fontSrc: ["'self'", ...fontSrcUrls],
+            fontSrc: ["'self'", ...fontSrcUrls]
         },
     })
 );
@@ -137,8 +141,8 @@ app.use((req, res, next) => {
 })
 
 app.use('/', userRoutes);
-app.use('/posts', posts)
-app.use('/posts/:id/comments', comments)
+app.use('/posts', postRoutes)
+app.use('/posts/:id/comments', commentRoutes)
 
 app.get("/", (req, res) => {
   res.render("home");

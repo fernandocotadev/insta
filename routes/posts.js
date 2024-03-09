@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const posts = require('../controllers/posts');
+
 const catchAsync = require('../utils/catchAsync');
 const { isLoggedIn, isAuthor, validatePost } = require('../middleware');
 const multer = require('multer');
@@ -11,6 +12,7 @@ const Post = require('../models/post');
 
 router.route('/')
     .get(catchAsync(posts.index))
+    
     // .get(catchAsync(posts.gallery))
     .post(isLoggedIn, upload.array('image'), validatePost, catchAsync(posts.createPost))
 

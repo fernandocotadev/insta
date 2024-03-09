@@ -1,31 +1,92 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#" 
-        style="
-        font-family:Monoton;
-        color: #fff;text-shadow:0 0 7px #fff,0 0 10px #fff,0 0 21px #fff,0 0 42px #0fa,0 0 82px #0fa,0 0 92px #0fa,0 0 102px #0fa,0 0 151px #0fa;
-        ">
-            MicroGram</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        </button>
-            <span class="navbar-toggler-icon"></span>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/posts">Posts</a>
-                <a class="nav-link" href="/posts/new">New Post</a>
-                <i class="bi bi-heart-fill"></i>
-            </div>
-        </div>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark rounded-pill">
+
+
+    
+<div class="container-fluid">
+    <a class="navbar-brand" href="#" 
+    style="
+    font-family:Monoton;
+    color: #fff;text-shadow:0 0 7px #fff,0 0 10px #fff,0 0 21px #fff,0 0 42px rgb(47, 0, 255),0 0 82px rgb(47, 0, 255),0 0 92px rgb(47, 0, 255),0 0 102px rgb(47, 0, 255),0 0 151px rgb(47, 0, 255);
+    ">
+        MicroGram</a>
+</div>
+
+
+
+<!-- <div class="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
+    <a class="dropdown-item" href="#">Home</a>
+    <a class="dropdown-item" href="#">Posts</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">
         <div class="navbar-nav ml-auto">
             <% if(!currentUser) {%>
-            <a class="nav-link" href="/login">Login</a>
-            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link glossy-button glossy-button--gray" 
+                style="color:white" 
+                href="/login">
+                    Login
+            </a>
+            <a class="nav-link glossy-button glossy-button--gray" 
+                style="color:white" 
+                href="/register">
+                Register
+            </a>
             <% } else {%>
-            <a class="nav-link" href="/logout">Logout</a>
+            <a class="nav-link glossy-button glossy-button--gray" 
+                style="color:white" 
+                href="/logout">
+                Logout
+            </a>
             <% } %>
         </div>
+    </a>
+</div> -->
+
+
+
+
+
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+        <a class="nav-link glossy-button glossy-button--gray" 
+                style="color:white" 
+                href="/">
+                Home</a>
+        <a class="nav-link glossy-button glossy-button--gray" 
+                style="color:white" 
+                href="/posts">
+                Posts</a>
+        <a class="nav-link glossy-button glossy-button--gray" 
+                style="color:white" 
+                href="/posts/new">
+                New Post</a>
+    </div>
+</div>
+
+
+        
+
+<div class="navbar-nav ml-auto">
+    <% if(!currentUser) {%>
+    <a class="nav-link glossy-button glossy-button--gray" 
+        style="color:white" 
+        href="/login">
+            Login
+    </a>
+    <a class="nav-link glossy-button glossy-button--gray" 
+        style="color:white" 
+        href="/register">
+        Register
+    </a>
+    <% } else {%>
+    <a class="nav-link glossy-button glossy-button--gray" 
+        style="color:white" 
+        href="/logout">
+        Logout
+    </a>
+    <% } %>
+</div>
+
     </div>
 </nav>
 
@@ -36,3 +97,5 @@
 
     
 </nav>
+
+

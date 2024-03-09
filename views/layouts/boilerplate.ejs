@@ -13,10 +13,12 @@
 
     <link rel="stylesheet" href="/stylesheets/app.css">
     <link rel="stylesheet" href="/stylesheets/home.css">
+    <link rel="stylesheet" href="/stylesheets/navBar.css">
     
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton:400">
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
@@ -52,10 +54,7 @@
           <a href="#">Contact</a>
         </div>
         
-        <!-- Use any element to open the sidenav -->
-        <p>
-        <span onclick="openNav()">OPEN</span>
-      </p>
+
       
         
         
@@ -112,18 +111,10 @@
 <script src='/javascripts/validateForms.js'></script>
 
 <script>
-
-/* Open the sidenav */
-function openNav() {
-  document.getElementById("mySidenav").style.width = "100%";
-}
-
-/* Close/hide the sidenav */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-
-</script>
+  function myFunction(x) {
+    x.classList.toggle("change");
+  }
+  </script>
 
 </body>
 

@@ -5,7 +5,7 @@
     <div class="text-center">
       <br>
 
-        <h1 style="font-family: Monoton;margin: auto; color: #fff; text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;">
+        <h1 style="font-family: Monoton;margin: auto; color: #fff; text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px rgb(0, 17, 255), 0 0 82px rgb(0, 17, 255), 0 0 92px rgb(0, 17, 255), 0 0 102px rgb(0, 17, 255), 0 0 151px rgb(0, 17, 255);">
             Show Post... 
         </h1>
         <br>
@@ -27,15 +27,13 @@
 
 
 
-                <!-- <div class="col-md-9">
-                    <img class="img-fluid rounded-start" style="width: 757px;" src="<%= post.images[0].url %>" alt="Img cap">
-                </div> -->
+
 
                 <div id="postCarousel" class="carousel slide" data-ride="carousel" style="width: 757px">
                     <div class="carousel-inner">
                         <% post.images.forEach((img, i) => {  %>
                         <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
-                            <img src="<%= img.url%>" class="d-block w-100" alt="" style="border-radius:5%">
+                            <img src="<%= img.url%>" class="d-block w-100 alt="" style="border-radius:5%">
                         </div>
                         <% }) %>
                 
@@ -74,15 +72,20 @@
                             <b><%= post.username %></b> &#160  <%= post.description %> &#160 <%= post.lastEdit %>
                         </p>
 
-                        <p class="card-text"><small class="text-muted"><%= post._id %></small></p>
-                        <p class="blockquote-footer"><%= new Date().toLocaleDateString('en-us', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' }) %></p>
+                        <p class="card-text"><small ><%= post._id %></small></p>
+                        <p class="card-text"><%= new Date().toLocaleDateString('en-us', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' }) %></p>
 
-                        <a href="/posts/" class="btn btn-primary">See All</a>
-                        <a href="/posts/<%= post._id %>/edit" class="btn btn-primary">Edit....</a>
+                        <a href="/posts/" class="btn btn-primary"
+                        style="background-color: navy;">
+                            See All</a>
+                        <a href="/posts/<%= post._id %>/edit" class="btn btn-primary"
+                            style="background: no-repeat center/80% url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Novartis-Campus_in_Basel-St._Johann%2C_WSJ-103_von_Frank_O._Gehry.jpg/320px-Novartis-Campus_in_Basel-St._Johann%2C_WSJ-103_von_Frank_O._Gehry.jpg);">
+                                Edit....
+                            </a>
 
                         <div>
                             <form action="/posts/<%= post._id%>?_method=DELETE" method="POST">
-                                <button class="btn btn-danger mb-2">Delete</button>
+                                <button class="btn btn-danger mb-2 button">Delete</button>
                               </form>
                         </div>
                     </div>
@@ -93,7 +96,7 @@
 
     <div>
         <div class="col-6">
-            <div id='map' ></div>
+            <div id='map' class="rounded"></div>
 
             <% if(currentUser){ %>
             <h2>Add Comment...</h2>
@@ -105,7 +108,8 @@
                         <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">Comment required.</div>
                 </div>
-                <button class="btn btn-success">Submit</button>
+                <button class="btn btn-success"
+                style="background-color: forestgreen;">Submit</button>
             </form>
             <% } %>
             <h1>Comments</h1>
@@ -115,12 +119,12 @@
 
 
             <div>
-            <div class="card mb-3 border border-info" style="border-radius:5%">
-                <div class="card-body bg-dark border border-info" style="border-radius:5%">
+            <div class="card mb-3 border border-white rounded">
+                <div class="card-body bg-dark border-white border-info rounded">
             
                     <br>
                     <% for(let comment of post.comments) { %>
-                    <p class="card-text"> <img class="" style="border-radius: 50%; width: 12px;" 
+                    <p class="card-text"> <img style="border-radius: 50%; width: 12px;" 
                         src="https://res.cloudinary.com/djwmkwg8x/image/upload/v1708447020/Anonymous_User_ntj9ng.jpg"> 
                         <b><%= comment.author.username %> 
                         </b> &#160 <%= comment.body %>
@@ -128,7 +132,9 @@
 
                    
                     <form action="/posts/<%=post._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
-                        <button class="btn btn-sm btn-danger">Delete</button>
+                        <button class="btn btn-sm btn-danger"
+                        style="background-color: maroon;">
+                            Delete</button>
                     </form>
                     <br>
 
@@ -181,3 +187,11 @@
 
 <script src="/javascripts/showPageMap.js"></script>
 
+<style>
+.button {
+                background-color: maroon;
+                cursor:pointer;
+                border: none;
+            }
+
+</style>

@@ -1,22 +1,21 @@
 <% layout('layouts/boilerplate') %>
-<div id="cluster-map"></div>
-<!-- whole body -->
+
+
 <div style="background-color: black; color: white;">
 
 
   <div class="container d-flex align-items-center justify-content-center">
 <div>
-
     <div class="row">
-
       <div class="col">
+        <br>
 
     <div class="text-center">
         <h1 style="
         font-family: Monoton; 
         font-size: 5em;
         margin:auto; 
-        color: #fff; text-shadow:0 0 7px #fff,0 0 10px #fff,0 0 21px #fff,0 0 42px #0fa,0 0 82px #0fa,0 0 92px #0fa,0 0 102px #0fa,0 0 151px #0fa;
+        color: #fff; text-shadow:0 0 7px #fff,0 0 10px #fff,0 0 21px #fff,0 0 42px rgb(72, 0, 255),0 0 82px rgb(72, 0, 255),0 0 92px rgb(72, 0, 255),0 0 102px rgb(72, 0, 255),0 0 151px rgb(72, 0, 255);
         ">All Posts</h1>
     </div>
 
@@ -27,36 +26,69 @@
   </div>  
 
 
-    <br>
-    <br>
-    <br>
+  <!-- NEXT SECTION - CLUSTER MAP
+NEXT SECTION
+NEXT SECTION
+NEXT SECTION
+NEXT SECTION -->
+
+
+  <br>
+  <br>
+  <br>
+
+
+  <div id="cluster-map" class="rounded"></div>
+
+
+  
     <br>
     <br>
 
-    <!--
-    <br>
 
-    <input type="checkbox" id="btnControl"/>
-    <label class="btn" for="btnControl"><img src="https://placekitten.com/200/140" id="btnLeft" /></label>
+    
 
-    <br>
-    <br>
-    <br> -->
+
+
+
+
+
+
+
+
+<!-- NEXT SECTION - SINGLE COLUMN IMAGES 
+NEXT SECTION
+NEXT SECTION
+NEXT SECTION
+NEXT SECTION -->
+
+
+
+
+    
 
     <div id="main" class="container d-flex align-items-center justify-content-center" style="width:auto">
-        <div>
+        <div >
 
             <div class="container">
                 <div class="row">
 
-                    <div class="col">
+                    <div class="col bg-dark" style="padding-top: 33px; 
+                            border-radius: 2em;">
                         <% for (let post of posts){%>
-                        <div class="card" style="width: 44rem; background-color: black; color: white;">
+                        <div class="card rounded" style="width: 44rem; 
+                        background-color: rgba(175, 170, 170, 0.212); 
+                        color: white;
+                        padding-top: 33px; 
+                        border-radius: 3em;">
 
-                            <div class="container">
+                            <div class="container" >
                                 <div class="row">
                                     <div class="col">
-                                        <img class="" style="border-radius:50%; width:2em;" src="https://res.cloudinary.com/djwmkwg8x/image/upload/v1708447020/Anonymous_User_ntj9ng.jpg"></img>
+                                        <img  
+                                        style="border-radius:50%; width:2em;" 
+                                        src="https://res.cloudinary.com/djwmkwg8x/image/upload/v1709920979/AnonymousUserPicture_qbidnv.png">
+                                        </img>
                                     </div>
                                     <div class="col-10" style="line-height:.7;">
                                         <p><b><%= post.username %></b></p>
@@ -66,7 +98,7 @@
                             </div>
                             
                             <!-- max-width:93% -->
-                            <img src="<%= post.images[0].url %>" class="card-img-top" alt="Image for post" style="width:auto;border-radius:20px;"/>
+                            <img src="<%= post.images[0].url %>" class="card-img-top" alt="Image for post" style="width:auto;border-radius:3%"/>
                             <div class="card-body">
                                 <div>
                                     <%= post.likes %> likes 
@@ -79,8 +111,8 @@
                             </div>
 
                             <div class="card-body">
-                                <p class="card-title text-muted"><%= post._id %></p>
-                                <p class="blockquote-footer"><%= new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric", hour:"numeric", minute:"numeric"}) %></p>
+                                <p class="card-title"><%= post._id %></p>
+                                <p class=""><%= new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric", hour:"numeric", minute:"numeric"}) %></p>
                                 <a href="http://localhost:3000/posts/<%= post._id %>" class="btn btn-primary">Details</a>
                             </div>
 
