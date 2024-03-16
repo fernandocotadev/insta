@@ -36,10 +36,10 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("#MONGO - connection open ! ! !");
+    console.log("// MONGO DB CONNECTED //");
   })
   .catch((err) => {
-    console.log("MONGO - Oh no, error - ");
+    console.log("// MONGO - Oh no, connection error - ");
     console.log(err);
   });
 
@@ -162,5 +162,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(3000, () => {
-  console.log("-PORT-3000-");
+  console.log("// PORT 3000 CONNECTED //");
 });
