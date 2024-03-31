@@ -3,7 +3,7 @@ const cities = require('./cities');
 const { places, descriptors , usernameStart, usernameEnding } = require('./seedHelpers');
 const Post = require('../models/post');
 
-const uri = "mongodb+srv://fernando:fc394200@cluster0.wcj1x48.mongodb.net/";
+const uri = "mongodb+srv://fernando:fc394200@cluster0.wcj1x48.mongodb.net/instaclone?retryWrites=true&w=majority";
 
 mongoose
   .connect(uri, {
@@ -12,10 +12,10 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("#MONGO - connection open ! ! !");
+    console.log("/// MONGO DB - Connection Open. ///");
   })
   .catch((err) => {
-    console.log("MONGO - Oh no, error - ");
+    console.log("/// MONGO - Error... /// ");
     console.log(err);
   });
 
@@ -41,11 +41,11 @@ const seedDB = async () => {
             likes: random1000,
             images: [
               {
-                  url: 'https://res.cloudinary.com/djwmkwg8x/image/upload/v1705443418/MicroGram/vb5jecfqelbkmrqrlldb.png',
+                  url: 'https://res.cloudinary.com/djwmkwg8x/image/upload/v1711377208/MicroGram/h9rntuxfg5jmlrpdem8g.png',
                   filename: 'YelpCamp/ahfnenvca4tha00h2ubt'
               },
               {
-                  url: 'https://res.cloudinary.com/djwmkwg8x/image/upload/v1705443418/MicroGram/vb5jecfqelbkmrqrlldb.png',
+                  url: 'https://res.cloudinary.com/djwmkwg8x/image/upload/v1711377208/MicroGram/spcc8htgozosdaho2nq2.png',
                   filename: 'YelpCamp/ruyoaxgf72nzpi4y6cdi'
               }
           ]

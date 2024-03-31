@@ -27,7 +27,8 @@ const commentRoutes = require('./routes/comments');
 // const posts = require('./routes/posts');
 // const comments = require('./routes/comments');
 
-const uri = "mongodb+srv://fernando:fc394200@cluster0.wcj1x48.mongodb.net/";
+const uri = "mongodb+srv://fernando:fc394200@cluster0.wcj1x48.mongodb.net/instaclone?retryWrites=true&w=majority";
+// mongodb+srv://user:pass@gettingstarted.x000y.mongodb.net/DbName?retryWrites=true&w=majority
 
 mongoose
   .connect(uri, {
